@@ -1,0 +1,29 @@
+
+	将student表相关的网页替换为class表相关的网页：
+	
+	将student对应的文件另存为class文件夹中class对应的文件，然后进行替换。
+	注意，务必要在查找/替换（Find/Replace）窗口中勾选上大小写敏感（Case sensitive）复选框。
+	
+
+	删除性别sex、班级className。最好先执行删除，然后再替换
+	学生  班级
+	学号  班级名称
+	姓名  入学年份
+	studentNo  className
+	studentName  year
+	student  class		最后替换
+	逐行检查代码，删除其他不需要的内容
+
+	更改CSS、图片、链接路径
+	在class文件夹中，创建能跳转到根目录相应网页的网页文件：index.jsp、main.jsp
+	
+	
+	
+	建议创建顺序：
+	classAdmin.jsp
+	classShow.jsp
+	classEdit.jsp
+	classEditDo.jsp
+	classAdd.jsp
+	classAddDo.jsp
+	classDeleteDo.jsp

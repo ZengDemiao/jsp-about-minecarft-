@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft 官方网站</title>
+    <script src="https://cdn.tailwindcss.com/3.3.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #0c0c0c;
+            color: #ffffff;
+        }
+        .hero-bg {
+            background-image: url('https://s.coze.cn/image/eVtA-NMhYxE/');
+            background-size: cover;
+            background-position: center;
+        }
+        .game-card {
+            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid #3a3a3a;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #5cb85c;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        .sale-badge {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        /* 添加的登录按钮样式 */
+        .login-btn {
+            background-color: #5cb85c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .login-btn:hover {
+            background-color: #4cae4c;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="bg-black py-4 px-6 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="" alt="Minecraft Logo" class="h-10">
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link text-white hover:text-green-400">游戏</a>
+                <a href="#" class="nav-link text-white hover:text-green-400">社区</a>
+                <a href="#" class="nav-link text-white hover:text-green-400">商城</a>
+                <a href="#" class="nav-link text-white hover:text-green-400">支持</a>
+                <a href="#" class="nav-link text-white hover:text-green-400">下载</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <!-- 添加的登录按钮 -->
+                <a href="index.jsp" class="login-btn bg-green-600 hover:bg-green-700">
+                    <i class="fas fa-sign-in-alt mr-2"></i>登录
+                </a>
+                
+                <button id="mobileMenuButton" class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-gray-900 mt-2 rounded-md">
+            <div class="px-4 py-2">
+                <a href="#" class="block py-2 text-white hover:text-green-400">游戏</a>
+                <a href="#" class="block py-2 text-white hover:text-green-400">社区</a>
+                <a href="#" class="block py-2 text-white hover:text-green-400">商城</a>
+                <a href="#" class="block py-2 text-white hover:text-green-400">支持</a>
+                <a href="#" class="block py-2 text-white hover:text-green-400">下载</a>
+                <!-- 移动端登录按钮 -->
+                <a href="index.jsp" class="block w-full bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md my-2 text-center">
+                    <i class="fas fa-sign-in-alt mr-2"></i>登录
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="hero-bg py-20 md:py-32 relative">
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-2xl">
+                <div class="sale-badge bg-red-600 text-white px-4 py-2 rounded-full inline-flex items-center mb-4">
+                    <span class="font-bold">限时优惠</span>
+                    <span class="ml-2">最高50%折扣</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Minecraft 15 周年庆典</h1>
+                <p class="text-xl text-gray-300 mb-8">探索我们的亮点、优惠和免费赠品！5月15日至6月22日期间最高可享50%优惠。</p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-bold">
+                        立即购买
+                    </button>
+                    <button class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-md font-bold">
+                        了解更多
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 促销横幅 -->
+    <section class="bg-gray-900 py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-white mb-4 md:mb-0">
+                    <span class="font-bold">Minecraft Dungeons 优惠高达50%！</span>
+                    <span class="font-bold ml-4">Minecraft Legends 优惠高达50%！</span>
+                </div>
+                <button class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md">
+                    查看所有优惠
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游戏介绍 -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">探索 Minecraft 宇宙</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Minecraft 主游戏 -->
+                <div class="game-card rounded-lg overflow-hidden">
+                    <img src="https://s.coze.cn/image/PZKtA5tecqY/" alt="Minecraft" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Minecraft</h3>
+                        <p class="text-gray-400 mb-4">沙盒生存，探险游戏 单人游戏 + 多人游戏</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-500 font-bold">¥89.00</span>
+                            <span class="text-red-500 line-through">¥178.00</span>
+                        </div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md mt-4">
+                            购买
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Minecraft Dungeons -->
+                <div class="game-card rounded-lg overflow-hidden">
+                    <img src="https://s.coze.cn/image/Vvm_nhUiHWs/" alt="Minecraft Dungeons" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Minecraft Dungeons</h3>
+                        <p class="text-gray-400 mb-4">地牢爬行，动作角色扮演类游戏 单人游戏 + 多人游戏</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-500 font-bold">¥59.00</span>
+                            <span class="text-red-500 line-through">¥118.00</span>
+                        </div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md mt-4">
+                            购买
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Minecraft Legends -->
+                <div class="game-card rounded-lg overflow-hidden">
+                    <img src="https://s.coze.cn/image/PmThYxDgxgA/" alt="Minecraft Legends" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Minecraft Legends</h3>
+                        <p class="text-gray-400 mb-4">动作角色扮演类游戏，策略游戏 单人游戏 + 多人游戏</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-500 font-bold">¥79.00</span>
+                            <span class="text-red-500 line-through">¥158.00</span>
+                        </div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md mt-4">
+                            购买
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Minecraft Education -->
+                <div class="game-card rounded-lg overflow-hidden">
+                    <img src="https://s.coze.cn/image/3I66VtUzQpc/" alt="Minecraft Education" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Minecraft Education</h3>
+                        <p class="text-gray-400 mb-4">教育，沙盒生存，探险游戏 单人游戏 + 多人游戏</p>
+                        <p class="text-sm text-gray-400">支持来自100多个国家/地区的成千上万名教育工作者</p>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md mt-4">
+                            了解更多
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特别优惠 -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">特别优惠</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 捆绑包 -->
+                <div class="game-card rounded-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/2">
+                        <img src="https://s.coze.cn/image/jwjxL5KNLuw/" alt="Minecraft 捆绑包" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">Minecraft 终极捆绑包</h3>
+                        <p class="text-gray-400 mb-6">走进这个由方块构筑，满是创意、惊险与神秘的世界，一个捆绑包里囊括了三款 Minecraft 游戏。</p>
+                        <div class="flex justify-between items-center mb-6">
+                            <span class="text-green-500 font-bold text-xl">¥199.00</span>
+                            <span class="text-red-500 line-through text-lg">¥398.00</span>
+                        </div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-bold">
+                            立即购买
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 电影DLC -->
+                <div class="game-card rounded-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/2">
+                        <img src="https://s.coze.cn/image/W6a78g5b47o/" alt="Minecraft 电影DLC" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">《我的世界大电影》DLC</h3>
+                        <p class="text-gray-400 mb-6">深入探索《我的世界大电影》的精彩冒险！在这个免费的 DLC 中，参与鞘翅飞行竞赛、挺过漫漫长夜，并且悄悄潜入林地府邸。</p>
+                        <div class="mb-6">
+                            <span class="text-green-500 font-bold text-xl">免费</span>
+                        </div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-md font-bold">
+                            下载DLC
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Realms Plus -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-white mb-6">订阅 Realms Plus</h2>
+                <p class="text-xl text-gray-300 mb-8">享受全天候专属服务器，分享你的精彩冒险！</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="game-card p-8 rounded-lg text-center w-64">
+                        <h3 class="text-xl font-bold text-white mb-4">1个月</h3>
+                        <p class="text-gray-400 mb-6">适合短期体验</p>
+                        <div class="text-green-500 font-bold text-2xl mb-6">¥29.00</div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md">
+                            订阅
+                        </button>
+                    </div>
+                    <div class="game-card p-8 rounded-lg text-center w-64 border-2 border-green-500 relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            最受欢迎
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">6个月</h3>
+                        <p class="text-gray-400 mb-6">节省20%</p>
+                        <div class="text-green-500 font-bold text-2xl mb-6">¥139.00</div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md">
+                            订阅
+                        </button>
+                    </div>
+                    <div class="game-card p-8 rounded-lg text-center w-64">
+                        <h3 class="text-xl font-bold text-white mb-4">12个月</h3>
+                        <p class="text-gray-400 mb-6">节省30%</p>
+                        <div class="text-green-500 font-bold text-2xl mb-6">¥249.00</div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md">
+                            订阅
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 免费赠品 -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">15周年免费赠品</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 普通披风 -->
+                <div class="game-card rounded-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3">
+                        <img src="https://s.coze.cn/image/Gdy8x3xyCDE/" alt="普通披风" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">普通披风</h3>
+                        <p class="text-gray-400 mb-6">使用 Microsoft 帐户登录 Minecraft Bedrock 版，即可获得"普通披风"！立即登录，即可展示这件优雅的披风。</p>
+                        <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md">
+                            立即领取
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 壁纸合集 -->
+                <div class="game-card rounded-lg overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/3">
+                        <img src="https://s.coze.cn/image/6FuRtWZIg9k/" alt="壁纸合集" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-2/3 p-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">壁纸合集</h3>
+                        <p class="text-gray-400 mb-6">使用我们最喜爱的 Minecraft 壁纸、社交横幅等个性化您的设备！</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Crocs 合辑</span>
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">15 周年纪念</span>
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Minecraft 合辑</span>
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Minecraft Dungeons</span>
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Minecraft Legends</span>
+                            <span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">Burberry 合辑</span>
+                        </div>
+                        <button class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md">
+                            下载壁纸
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 电影预告 -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">《我的世界大电影》</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden mb-6">
+                    <img src="https://s.coze.cn/image/MZ9HNrswrAI/" alt="Minecraft 大电影" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-red-600 hover:bg-red-700 text-white rounded-full w-16 h-16 flex items-center justify-center">
+                            <i class="fas fa-play text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <p class="text-gray-300 text-center mb-8">A MINECRAFT MOVIE is now available on Digital Explore a Snowy Kingdom, a Bottomless Pit, and more!</p>
+                <div class="flex justify-center">
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-bold flex items-center">
+                        <i class="fab fa-youtube mr-2"></i> 观看预告片
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="" alt="Minecraft Logo" class="h-10 mb-4">
+                    <p class="text-gray-400">无论您想要更可爱的、更有趣的还是更显混乱特质的皮肤，总有一款附加包适合您。大量免费及付费附加包任您挑选。</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">游戏</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">Minecraft</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">Minecraft Dungeons</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">Minecraft Legends</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">Minecraft Education</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">社区</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">论坛</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">创作者</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">市场</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">活动</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">支持</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">帮助中心</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">联系我们</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">常见问题</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400">反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 mb-4 md:mb-0">© 2025 Mojang Studios. 保留所有权利。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="text-center mt-4 text-gray-500 text-sm">
+                    <p>created by <a href="https://space.coze.cn" class="text-blue-400 hover:underline">coze space</a></p>
+                    <p>页面内容均由 AI 生成，仅供参考</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
